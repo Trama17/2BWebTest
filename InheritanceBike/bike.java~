@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class bike{
+  public static void main(String[] args) {
+    Scanner key = new Scanner(System.in);
+    
+    //units
+    System.out.println("Enter Distance Units: (mi/yds/ft/in/km/m/dm/cm)");
+      String dUnits = key.nextLine();
+    System.out.println("Enter Time Units: (s/min/hr/d/m/yr)");
+      String tUnits = key.nextLine();
+      
+    //variables
+    System.out.println("Set the acceleration you want to test for a bike");
+      float inAcceleration = key.nextInt();
+    System.out.println("Set the duration you would like to ride the bike (time)");
+      float inTime = key.nextInt();
+    System.out.println("If you started from a point other than zero, please identify where you started (from a number line)");
+      float inC = key.nextInt();
+    
+    vehicle bike = new vehicle();
+    newbike.setAcceleration(inAcceleration);
+    
+    if (!dUnits.equals("mi") && !dUnits.equals("yds") && !dUnits.equals("ft") && !dUnits.equals("in") && 
+        !dUnits.equals("km") && !dUnits.equals("m") && !dUnits.equals("dm") && !dUnits.equals("cm")) {
+      System.out.println("Invalid Distance units, please try again");
+    }
+    
+    if (!tUnits.equals("s") && !tUnits.equals("min") && !tUnits.equals("hr") && !tUnits.equals("d") && 
+        !tUnits.equals("m") && !tUnits.equals("yr")) {
+      System.out.println("Invalid Time units, please try again");
+    }
+    
+    System.out.println("You set your acceleration to " +
+                       inAcceleration + " " + dUnits + "/" + tUnits + "^2" + ".");
+    System.out.println("Your average speed would be " + 
+                       newbike.calcSpeed(inAcceleration, inTime, inC) + " " + dUnits + "/" + tUnits + ".");
+    System.out.println("Your average distance would be " + 
+                       newbike.calcDistance(inAcceleration, inTime, inC) + " " + dUnits + ".");
+  }
+}
